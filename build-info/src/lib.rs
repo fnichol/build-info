@@ -60,3 +60,6 @@ Literal curly braces can be printed by doubling them up: `build_info::format!("{
 #[cfg_attr(not(feature = "nested"), proc_macro_hack)]
 #[cfg_attr(feature = "nested", proc_macro_hack(support_nested))]
 pub use build_info_proc::format;
+#[cfg_attr(not(feature = "nested"), proc_macro_hack)]
+#[cfg_attr(feature = "nested", proc_macro_hack(support_nested))]
+pub use build_info_proc::format2;

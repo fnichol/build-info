@@ -7,6 +7,7 @@ use proc_macro_hack::proc_macro_hack;
 use build_info_common::{BuildInfo, VersionedString};
 
 mod format;
+mod format2;
 #[cfg(feature = "runtime")]
 mod function;
 
@@ -27,6 +28,12 @@ pub fn build_info(input: TokenStream) -> TokenStream {
 #[proc_macro_hack]
 pub fn format(input: TokenStream) -> TokenStream {
 	format::format(input, deserialize_build_info())
+}
+
+#[proc_macro_error]
+#[proc_macro_hack]
+pub fn format2(input: TokenStream) -> TokenStream {
+	format2::format(input, deserialize_build_info())
 }
 
 fn deserialize_build_info() -> BuildInfo {
